@@ -21,6 +21,7 @@
 		CE547BA21862E33C00FFB7A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE547B841862E33B00FFB7A7 /* UIKit.framework */; };
 		CE547BAA1862E33C00FFB7A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE547BA81862E33C00FFB7A7 /* InfoPlist.strings */; };
 		CE547BAC1862E33C00FFB7A7 /* uuid7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE547BAB1862E33C00FFB7A7 /* uuid7Tests.m */; };
+		CE547BB61862E48400FFB7A7 /* AppleAccount.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE547BB51862E48400FFB7A7 /* AppleAccount.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CE547BA71862E33C00FFB7A7 /* uuid7Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uuid7Tests-Info.plist"; sourceTree = "<group>"; };
 		CE547BA91862E33C00FFB7A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE547BAB1862E33C00FFB7A7 /* uuid7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uuid7Tests.m; sourceTree = "<group>"; };
+		CE547BB51862E48400FFB7A7 /* AppleAccount.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleAccount.framework; path = vender/AppleAccount.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE547B831862E33B00FFB7A7 /* CoreGraphics.framework in Frameworks */,
+				CE547BB61862E48400FFB7A7 /* AppleAccount.framework in Frameworks */,
 				CE547B851862E33B00FFB7A7 /* UIKit.framework in Frameworks */,
 				CE547B811862E33B00FFB7A7 /* Foundation.framework in Frameworks */,
 			);
@@ -112,6 +115,7 @@
 		CE547B861862E33B00FFB7A7 /* uuid7 */ = {
 			isa = PBXGroup;
 			children = (
+				CE547BB51862E48400FFB7A7 /* AppleAccount.framework */,
 				CE547B8F1862E33B00FFB7A7 /* AppDelegate.h */,
 				CE547B901862E33B00FFB7A7 /* AppDelegate.m */,
 				CE547B921862E33B00FFB7A7 /* Main.storyboard */,
@@ -376,11 +380,27 @@
 		CE547BB01862E33C00FFB7A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					./uuid7/vender,
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"$(inherited)",
+					./uuid7/vender,
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					./uuid7/vender,
+					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/PrivateFrameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uuid7/uuid7-Prefix.pch";
 				INFOPLIST_FILE = "uuid7/uuid7-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,11 +409,18 @@
 		CE547BB11862E33C00FFB7A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					./uuid7/vender,
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uuid7/uuid7-Prefix.pch";
 				INFOPLIST_FILE = "uuid7/uuid7-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

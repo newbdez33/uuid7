@@ -7,12 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import <AppleAccount/AADeviceInfo.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSBundle *b = [NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/AppleAccount.framework"];
+    BOOL success = [b load];
+    if (success) {
+        Class AADeviceInfo = NSClassFromString(@"AADeviceInfo");
+        NSLog(@"-- serialNumber: %@", [AADeviceInfo serialNumber]);
+        NSLog(@"-- udid: %@", [AADeviceInfo udid]);
+        NSLog(@"-- appleIDClientIdentifier: %@", [AADeviceInfo appleIDClientIdentifier]);
+    }
+
     return YES;
 }
 							
